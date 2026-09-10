@@ -37,3 +37,21 @@ function findProductById(products, id) {
 function getLowStockProducts(products) {
   return products.filter(p => p.stock < 10);
 }
+function updateStock(products, id, newStock) {
+  return products.map(p =>
+    p.id === id ? { ...p, stock: newStock } : p
+  );
+}
+ 
+console.log("\n===== BAGIAN 2 =====");
+ 
+console.log("\n-- Latihan 2.1: Cari produk id=5 --");
+console.log(findProductById(products, 5));
+ 
+console.log("\n-- Latihan 2.2: Produk stok < 10 --");
+console.log(getLowStockProducts(products).map(p => `${p.title} (stock: ${p.stock})`));
+ 
+console.log("\n-- Latihan 2.3: Update stok produk id=1 jadi 99 --");
+const productsUpdated = updateStock(products, 1, 99);
+console.log("Produk asli (tidak berubah):", findProductById(products, 1));
+console.log("Produk hasil update:", findProductById(productsUpdated, 1));
