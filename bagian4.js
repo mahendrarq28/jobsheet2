@@ -31,3 +31,13 @@ const nestedProducts = [
 ];
 
 const allTags = nestedProducts.flatMap(p => p.tags);
+
+const allComments = nestedProducts.flatMap(p => p.reviews.map(r => r.comment));
+ 
+console.log("\n===== BAGIAN 4 =====");
+ 
+console.log("\n-- Latihan 4.1: Semua tags (flatMap) --");
+console.log(allTags);
+ 
+console.log("\n-- Latihan 4.2: Semua comment (flatMap) --");
+console.log(allComments);
