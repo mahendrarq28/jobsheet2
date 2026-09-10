@@ -34,6 +34,6 @@ const products = [
 function findProductById(products, id) {
   return products.find(p => p.id === id);
 }
-function findProductById(products, id) {
-  return products.find(p => p.id === id);
+function getLowStockProducts(products) {
+  return products.filter(p => p.stock < 10);
 }
