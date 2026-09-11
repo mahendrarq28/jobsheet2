@@ -39,3 +39,28 @@ const accessoriesPrices = products
   .filter(p => p.category === "accessories")
   .map(p => p.price);
 const avgAccessoriesPrice = accessoriesPrices.reduce((a, b) => a + b, 0) / accessoriesPrices.length;
+
+function getStatistics(products) {
+  const totalProducts = products.length;
+  const prices = products.map(p => p.price);
+  const averagePrice = prices.reduce((a, b) => a + b, 0) / totalProducts;
+  const highestPrice = Math.max(...prices);
+  const lowestPrice = Math.min(...prices);
+  const totalStock = products.reduce((sum, p) => sum + p.stock, 0);
+  const averageRating = products.reduce((sum, p) => sum + p.rating, 0) / totalProducts;
+ 
+  return { totalProducts, averagePrice, highestPrice, lowestPrice, totalStock, averageRating };
+}
+ 
+console.log("===== BAGIAN 5 =====");
+ 
+console.log("\n-- Contoh dasar --");
+console.log("Titles (5 pertama):", titles.slice(0, 5));
+console.log("Produk > 500 (titles):", expensiveProducts.map(p => p.title));
+console.log("Total stock semua produk:", totalStock);
+ 
+console.log("\n-- Latihan 5.1: Rata-rata harga kategori 'accessories' --");
+console.log(avgAccessoriesPrice.toFixed(2));
+ 
+console.log("\n-- Latihan 5.2: getStatistics --");
+console.log(getStatistics(products));
