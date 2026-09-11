@@ -37,3 +37,22 @@ function linearSearch(array, target) {
   }
   return -1;
 }
+
+function linearSearchProductById(products, id) {
+  for (let i = 0; i < products.length; i++) {
+    if (products[i].id === id) return i; 
+  }
+  return -1;
+}
+ 
+console.log("\n===== BAGIAN 6 =====");
+ 
+console.log("\n-- Latihan 6.1: linearSearch angka --");
+const angka = [10, 25, 3, 47, 8];
+console.log("Cari 47:", linearSearch(angka, 47));   
+console.log("Cari 99:", linearSearch(angka, 99));   
+ 
+console.log("\n-- Latihan 6.2: Cari produk id=7 --");
+const idx = linearSearchProductById(products, 7);
+console.log("Ditemukan di index:", idx, "->", products[idx].title);
+
