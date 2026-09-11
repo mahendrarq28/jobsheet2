@@ -46,3 +46,35 @@ function bubbleSort(numbers) {
   }
   return arr;
 }
+
+function sortProducts(products, sortBy) {
+  const arr = [...products];
+  switch (sortBy) {
+    case "price-asc":
+      return arr.sort((a, b) => a.price - b.price);
+    case "price-desc":
+      return arr.sort((a, b) => b.price - a.price);
+    case "rating":
+      return arr.sort((a, b) => b.rating - a.rating);
+    case "title":
+      return arr.sort((a, b) => a.title.localeCompare(b.title));
+    default:
+      return arr;
+  }
+}
+ 
+console.log("\n===== BAGIAN 8 =====");
+ 
+console.log("\n-- Built-in sort --");
+console.log("Ascending:", ascResult);
+console.log("Descending:", descResult);
+ 
+console.log("\n-- Latihan 8.1: bubbleSort manual --");
+console.log("Sebelum:", numbersAsc);
+console.log("Sesudah:", bubbleSort(numbersAsc));
+console.log("Array asli tidak berubah:", numbersAsc);
+ 
+console.log("\n-- Latihan 8.2: sortProducts --");
+console.log("Top 3 by price-asc:", sortProducts(products, "price-asc").slice(0, 3).map(p => `${p.title} ($${p.price})`));
+console.log("Top 3 by rating:", sortProducts(products, "rating").slice(0, 3).map(p => `${p.title} (${p.rating})`));
+console.log("Top 3 by title:", sortProducts(products, "title").slice(0, 3).map(p => p.title));
