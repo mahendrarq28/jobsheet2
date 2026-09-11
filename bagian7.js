@@ -42,3 +42,27 @@ function binarySearch(arr, target) {
   }
   return -1;
 }
+
+function binarySearchByPrice(sortedProducts, targetPrice) {
+  let left = 0;
+  let right = sortedProducts.length - 1;
+  while (left <= right) {
+    const mid = Math.floor((left + right) / 2);
+    if (sortedProducts[mid].price === targetPrice) return sortedProducts[mid];
+    if (sortedProducts[mid].price < targetPrice) left = mid + 1;
+    else right = mid - 1;
+  }
+  return null;
+}
+ 
+console.log("\n===== BAGIAN 7 =====");
+ 
+console.log("\n-- Latihan 7.1: binarySearch angka terurut --");
+const sortedNumbers = [3, 8, 10, 25, 47];
+console.log("Cari 25:", binarySearch(sortedNumbers, 25)); // index 3
+console.log("Cari 99:", binarySearch(sortedNumbers, 99)); // -1
+ 
+console.log("\n-- Latihan 7.2: binarySearchByPrice --");
+const sortedByPrice = [...products].sort((a, b) => a.price - b.price);
+const found = binarySearchByPrice(sortedByPrice, 180);
+console.log("Cari produk harga 180:", found ? found.title : "tidak ditemukan");
