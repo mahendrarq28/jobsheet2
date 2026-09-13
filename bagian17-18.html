@@ -58,3 +58,35 @@
         container.append(card);
       }
     }
+
+   const state = {
+      products: dummyProducts, 
+      search: "",
+      category: "all",
+      sortBy: "default",
+      favorites: [],
+      status: "idle" 
+    };
+ 
+    function render() {
+      let result = [...state.products];
+ 
+      if (state.search.trim() !== "") {
+        const keyword = state.search.toLowerCase();
+        result = result.filter(p => p.title.toLowerCase().includes(keyword));
+      }
+ 
+      if (state.category !== "all") {
+        result = result.filter(p => p.category === state.category);
+      }
+ 
+      if (state.sortBy === "price-asc") {
+        result.sort((a, b) => a.price - b.price);
+      } else if (state.sortBy === "price-desc") {
+        result.sort((a, b) => b.price - a.price);
+      } else if (state.sortBy === "rating") {
+        result.sort((a, b) => b.rating - a.rating);
+      }
+ 
+      renderProducts(result);
+    } 
