@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Bagian 17-18 - Product Explorer (Latihan)</title>
+  <style>
+    body { font-family: sans-serif; max-width: 700px; margin: 20px auto; }
+    .product-card { border: 1px solid #ccc; border-radius: 8px; padding: 10px; margin-bottom: 10px; }
+    .product-card img { max-width: 80px; float: left; margin-right: 10px; }
+    .controls { margin-bottom: 20px; }
+  </style>
+</head>
+<body>
+ 
+  <h2>Bagian 17-18 — Latihan DOM & State Management</h2>
+ 
+  <div class="controls">
+    <input type="text" id="search-input" placeholder="Cari produk...">
+    <select id="category-select">
+      <option value="all">Semua Kategori</option>
+      <option value="accessories">Accessories</option>
+      <option value="audio">Audio</option>
+      <option value="monitors">Monitors</option>
+    </select>
+  </div>
+ 
+  <div id="product-list"></div>
+ 
+  <script>
+
+    const dummyProducts = [
+      { id: 1, title: "Laptop", category: "accessories", price: 1200, rating: 4.5, thumbnail: "https://via.placeholder.com/80" },
+      { id: 2, title: "Headphones", category: "audio", price: 100, rating: 4.0, thumbnail: "https://via.placeholder.com/80" },
+      { id: 3, title: "Monitor 24 inch", category: "monitors", price: 180, rating: 4.4, thumbnail: "https://via.placeholder.com/80" },
+      { id: 4, title: "Gaming Mouse", category: "accessories", price: 45, rating: 4.1, thumbnail: "https://via.placeholder.com/80" },
+      { id: 5, title: "Bluetooth Speaker", category: "audio", price: 75, rating: 4.0, thumbnail: "https://via.placeholder.com/80" }
+    ];
+ 
+    function renderProducts(products) {
+      const container = document.querySelector("#product-list");
+      container.innerHTML = "";
+ 
+      if (products.length === 0) {
+        container.innerHTML = "<p>Tidak ada produk ditemukan.</p>";
+        return;
+      }
+ 
+      for (const product of products) {
+        const card = document.createElement("div");
+        card.classList.add("product-card");
+        card.innerHTML = `
+          <img src="${product.thumbnail}" alt="${product.title}">
+          <h3>${product.title}</h3>
+          <p>${product.category}</p>
+          <p>Harga: $${product.price}</p>
+          <p>Rating: ${product.rating}</p>
+        `;
+        container.append(card);
+      }
+    }
