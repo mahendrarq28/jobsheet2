@@ -59,3 +59,9 @@ console.log("\n===== BAGIAN 16 =====");
 console.log("\n-- Latihan 16.1: Bandingkan jumlah langkah --");
 const bigArray = Array.from({ length: 10000 }, (_, i) => i + 1); 
 const targetValue = 9999; 
+
+const linearResult = linearSearchCounted(bigArray, targetValue);
+const binaryResult = binarySearchCounted(bigArray, targetValue);
+ 
+console.log(`Linear search: ditemukan di index ${linearResult.index}, butuh ${linearResult.steps} langkah`);
+console.log(`Binary search: ditemukan di index ${binaryResult.index}, butuh ${binaryResult.steps} langkah`);
