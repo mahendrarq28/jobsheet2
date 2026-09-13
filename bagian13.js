@@ -48,3 +48,15 @@ class Stack {
     return this.items.length === 0;
   }
 }
+
+console.log("\n===== BAGIAN 13 =====");
+ 
+console.log("\n-- Latihan 13.2: Search history pakai Stack --");
+const searchHistory = new Stack();
+searchHistory.push("laptop");
+searchHistory.push("phone");
+searchHistory.push("tablet");
+ 
+console.log("Riwayat saat ini (paling atas = paling terakhir dicari):", searchHistory.peek());
+console.log("Undo search (pop):", searchHistory.pop());
+console.log("Setelah undo, riwayat teratas:", searchHistory.peek());
