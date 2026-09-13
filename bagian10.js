@@ -43,3 +43,17 @@ console.log("\n===== BAGIAN 10 =====");
 console.log("\n-- Latihan 10.1: countFrequency contoh sederhana --");
 const words = ["laptop", "phone", "laptop", "tablet", "phone", "laptop"];
 console.log(countFrequency(words));
+
+console.log("\n-- Latihan 10.2: Terapkan ke data produk --");
+ 
+console.log("Frekuensi category:");
+console.log(countFrequency(products.map(p => p.category)));
+ 
+console.log("\nFrekuensi tags (semua tag digabung dulu pakai flatMap):");
+console.log(countFrequency(products.flatMap(p => p.tags)));
+ 
+console.log("\nFrekuensi rating (dibulatkan ke bilangan bulat terdekat):");
+console.log(countFrequency(products.map(p => Math.round(p.rating))));
+ 
+console.log("\nFrekuensi brand:");
+console.log(countFrequency(products.map(p => p.brand)));
